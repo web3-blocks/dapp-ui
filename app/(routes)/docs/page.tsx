@@ -2,11 +2,35 @@ import Link from "next/link";
 
 import CodeBlock from "@/components/code-block";
 import { Wrapper } from "@/components/shared/wrapper";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig, siteMap } from "@/config/site.config";
 import { env } from "@/lib/env";
+import { Metadata } from "next";
 
 export const revalidate = false;
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: siteMap.doc.title,
+  description: siteMap.doc.description,
+  openGraph: {
+    title: siteMap.doc.title,
+    description: siteMap.doc.description,
+    siteName: siteConfig.name,
+    url: siteConfig.siteUrl,
+    type: "website",
+    images: "/assets/images/opengraph-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: siteConfig.handle,
+    creator: siteConfig.creator,
+    images: "/assets/images/opengraph-image.png",
+  },
+  icons: {
+    icon: siteConfig.icons,
+  },
+  authors: siteConfig.authors,
+};
 
 export default function Docs() {
   return (
@@ -14,20 +38,12 @@ export default function Docs() {
       <Wrapper className="border-dashed py-16 md:border-x md:py-32">
         <div className="relative mx-auto max-w-2xl">
           <h2 className="mb-6 text-3xl font-bold text-balance md:text-4xl">
-            {siteConfig.name} Setup Guide
+            {siteMap.doc.title}
           </h2>
 
           <div className="text-muted-foreground mt-6 space-y-12">
             <p className="text-sm leading-6 sm:text-base">
-              The{" "}
-              <span className="text-foreground font-medium">
-                {siteConfig.name} Registry
-              </span>{" "}
-              lets you install production‑ready shadcn/UI marketing blocks
-              directly into your dapp project using the shadcn CLI. Add the
-              registry once and then pull blocks by name, no rigid templates,
-              just flexible, composable components you can customize and scale
-              across marketing sites.
+              {siteMap.doc.description}
             </p>
 
             {/* STEP 1: New Next.js Project */}

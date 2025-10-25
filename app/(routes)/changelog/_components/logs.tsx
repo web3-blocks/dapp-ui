@@ -29,6 +29,7 @@ import { wispConfig } from "@/config/wisp.config";
 import { Wrapper } from "@/components/shared/wrapper";
 import { errorHandler, formatDateString, getInitials } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { siteMap } from "@/config/site.config";
 
 export const Logs = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
@@ -63,11 +64,10 @@ export const Logs = () => {
       >
         <div className="flex max-w-lg flex-col gap-4 text-start">
           <h2 className="text-3xl font-bold text-balance md:text-4xl">
-            Changelog
+            {siteMap.changelog.title}
           </h2>
           <p className="text-muted-foreground">
-            Stay updated with the latest features, improvements, and fixes
-            through our detailed changelog.
+            {siteMap.changelog.description}
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export const Logs = () => {
               .sort(
                 (a, b) =>
                   new Date(String(b.content.publishedAt)).getTime() -
-                  new Date(String(a.content.publishedAt)).getTime()
+                  new Date(String(a.content.publishedAt)).getTime(),
               )
               .map((item, index) => (
                 <TimelineItem

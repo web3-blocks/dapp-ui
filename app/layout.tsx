@@ -3,7 +3,7 @@ import { Albert_Sans, Inconsolata } from "next/font/google";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig, siteMap } from "@/config/site.config";
 import GlobalProvider from "@/components/provider/global.provider";
 
 const fontSans = Albert_Sans({
@@ -20,12 +20,12 @@ const fontMono = Inconsolata({
 export const metadata: Metadata = {
   title: {
     template: `%s • ${siteConfig.name}`,
-    default: siteConfig.default.title,
+    default: siteMap.default.title,
   },
-  description: siteConfig.default.description,
+  description: siteMap.default.description,
   openGraph: {
-    title: siteConfig.default.title,
-    description: siteConfig.default.description,
+    title: siteMap.default.title,
+    description: siteMap.default.description,
     siteName: siteConfig.name,
     url: siteConfig.siteUrl,
     type: "website",
@@ -54,7 +54,7 @@ export default function RootLayout({
         className={cn(
           "flex flex-1 flex-col font-sans antialiased",
           fontSans.variable,
-          fontMono.variable
+          fontMono.variable,
         )}
       >
         <GlobalProvider>{children}</GlobalProvider>

@@ -23,6 +23,7 @@ import {
   rgbToHsl,
   toHex,
 } from "@/lib/utils";
+import { siteMap } from "@/config/site.config";
 
 export const ColorSection = () => {
   const [selectedFormat, setSelectedFormat] = useState<Format>("hex");
@@ -41,10 +42,10 @@ export const ColorSection = () => {
       Object.keys(colors).filter(
         (key) =>
           !["inherit", "current", "transparent", "black", "white"].includes(
-            key
-          ) && typeof colors[key as keyof typeof colors] === "object"
+            key,
+          ) && typeof colors[key as keyof typeof colors] === "object",
       ),
-    []
+    [],
   );
 
   function oklchToRgb(ok: string): { r: number; g: number; b: number } | null {
@@ -72,7 +73,7 @@ export const ColorSection = () => {
     format: Format,
     oklch: string,
     fam: string,
-    shade: string
+    shade: string,
   ): string {
     if (format === "oklch") return oklch;
     if (format === "className") return `bg-${fam}-${shade}`;
@@ -138,11 +139,10 @@ export const ColorSection = () => {
         <Wrapper size={"sm"} className="px-0!">
           <div className="flex max-w-xl flex-col gap-4 text-start">
             <h2 className="text-3xl font-bold text-balance md:text-4xl">
-              Tailwind Colors in Every Format
+              {siteMap.colors.title}
             </h2>
             <p className="text-muted-foreground">
-              The complete Tailwind color palette in HEX, RGB, HSL, CSS
-              variables, and classes. Ready to copy and paste into your project.
+              {siteMap.colors.description}
             </p>
           </div>
         </Wrapper>
@@ -150,7 +150,7 @@ export const ColorSection = () => {
         <div className="flex flex-col gap-16 sm:gap-12">
           {families.map((fam, index) => {
             const shades = Object.entries(
-              colors[fam as keyof typeof colors] as Record<string, string>
+              colors[fam as keyof typeof colors] as Record<string, string>,
             );
 
             return (
