@@ -1,3 +1,4 @@
+import { Features } from "./_components/features";
 import { HomeHero } from "./_components/hero";
 import { Integrations } from "./_components/integrate";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <section className="relative overflow-x-clip border-b border-dashed">
       <HomeHero />
       <Integrations />
+      <Features />
     </section>
   );
 }
