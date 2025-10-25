@@ -81,7 +81,7 @@ function TimelineContent({
   return (
     <div
       data-slot="timeline-content"
-      className={cn("text-muted-foreground max-w-lg text-sm", className)}
+      className={cn("text-muted-foreground sm:max-w-lg text-sm", className)}
       {...props}
     />
   );
@@ -106,7 +106,7 @@ function TimelineImage({
         quality={100}
         {...props}
         className={cn(
-          "mt-6 size-full h-auto max-w-md rounded-lg border object-cover sm:w-96",
+          "mt-4 sm:mt-6 size-full h-auto max-w-md rounded-lg border object-cover sm:w-96",
           className
         )}
       />

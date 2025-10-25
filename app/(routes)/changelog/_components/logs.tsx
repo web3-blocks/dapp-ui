@@ -111,7 +111,7 @@ export const Logs = () => {
                       </Avatar>
                     </TimelineIndicator>
                   </TimelineHeader>
-                  <TimelineContent className="text-foreground mt-2 rounded-lg border px-4 py-3">
+                  <TimelineContent className="mt-2 sm:rounded-lg sm:border sm:px-4 sm:py-3">
                     <p className="text-foreground mb-1 text-sm font-semibold sm:text-base">
                       {String(item.content.title)}
                     </p>
