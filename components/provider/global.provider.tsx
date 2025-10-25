@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 // import { Header } from "@/components/shared/header";
 // import { Footer } from "@/components/shared/footer";
-import { CustomCursor } from "@/components/cursor";
+import { CustomCursor } from "@/components/shared/cursor";
 import { ThemeProvider } from "@/components/provider/theme.provider";
 
 export default function GlobalProvider({
