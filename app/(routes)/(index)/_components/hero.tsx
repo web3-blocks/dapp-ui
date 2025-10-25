@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-import { siteConfig } from "@/config/site.config";
 import { Wrapper } from "@/components/shared/wrapper";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -17,18 +16,26 @@ export const HomeHero = () => {
                 <Link
                   target="_blank"
                   href="https://ui.shadcn.com/"
-                  className="mx-auto flex w-fit items-center gap-2 rounded-(--radius) border p-1 pr-3 lg:ml-0"
+                  className="dark:hover:bg-background dark:hover:border-t-border group dark:bg-muted group flex w-fit items-center gap-4 rounded-full mx-auto lg:ml-0 border p-1 pl-4 dark:shadow-md transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                 >
-                  <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs font-medium">
-                    {siteConfig.name}
+                  <span className="text-foreground text-sm">
+                    Powered by the shadcn
                   </span>
-                  <span className="text-sm">Powered by the shadcn</span>
-                  <span className="block h-4 w-px bg-(--color-border)"></span>
+                  <span className="block h-4 w-0.5 dark:group-hover:border-muted border transition-colors duration-300"></span>
 
-                  <ArrowRight className="size-4" />
+                  <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
+                    <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
+                      <span className="flex size-6">
+                        <ArrowRight className="m-auto size-3" />
+                      </span>
+                      <span className="flex size-6">
+                        <ArrowRight className="m-auto size-3" />
+                      </span>
+                    </div>
+                  </div>
                 </Link>
 
-                <h1 className="mt-8 text-4xl leading-[1.1] font-bold sm:text-5xl md:leading-[1.2]">
+                <h1 className="mt-6 text-4xl leading-[1.1] font-bold sm:text-5xl">
                   Web3 Components for Modern dApps
                 </h1>
                 <p className="mt-4">
@@ -71,7 +78,7 @@ export const HomeHero = () => {
               <div className="relative">
                 <div className="to-background absolute -inset-10 z-1 bg-radial-[at_75%_25%] from-transparent to-40%"></div>
                 <Image
-                  className="hidden dark:block"
+                  className="hidden brightness-50 lg:brightness-100 dark:block"
                   src="/assets/images/shadcn-dark.png"
                   alt="app illustration"
                   width={2796}
@@ -80,7 +87,7 @@ export const HomeHero = () => {
                   quality={100}
                 />
                 <Image
-                  className="dark:hidden"
+                  className="dark:hidden opacity-50 lg:opacity-100"
                   src="/assets/images/shadcn-light.png"
                   alt="app illustration"
                   width={2796}

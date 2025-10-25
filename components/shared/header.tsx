@@ -68,7 +68,10 @@ export const Header = () => {
                         <ul className="grid gap-2 md:w-[450px] md:grid-cols-[.75fr_1fr] lg:w-[550px]">
                           <li className="row-span-3">
                             <NavigationMenuLink asChild>
-                              <div className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md">
+                              <Link
+                                href="/"
+                                className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-4 no-underline outline-hidden transition-all duration-200 select-none focus:shadow-md"
+                              >
                                 <div className="text-base font-medium">
                                   {siteConfig.name}
                                 </div>
@@ -76,7 +79,7 @@ export const Header = () => {
                                   Beautifully designed components built with
                                   Tailwind CSS.
                                 </p>
-                              </div>
+                              </Link>
                             </NavigationMenuLink>
                           </li>
                           {nav.children.map((child) => (
