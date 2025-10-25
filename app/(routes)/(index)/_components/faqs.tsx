@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import {
   Accordion,
   AccordionContent,
@@ -54,17 +52,6 @@ export const FAQs = () => {
                   </div>
                 ))}
               </Accordion>
-
-              <p className="text-muted-foreground mt-6 px-8 text-sm sm:text-base">
-                Can&apos;t find what you&apos;re looking for? Contact our{" "}
-                <Link
-                  target="_blank"
-                  href="mailto:dapp.ui.components@gmail.com"
-                  className="text-primary font-medium hover:underline"
-                >
-                  support team
-                </Link>
-              </p>
             </div>
           </div>
         </Wrapper>
