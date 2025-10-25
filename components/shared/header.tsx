@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TbMenu } from "react-icons/tb";
-import { IoLogoGithub } from "react-icons/io";
+import { VscGithubAlt } from "react-icons/vsc";
 import { RiTwitterXLine } from "react-icons/ri";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
@@ -118,7 +118,7 @@ export const Header = () => {
               href={env.NEXT_PUBLIC_GITHUB_URL}
               className={buttonVariants({ size: "sm", variant: "ghost" })}
             >
-              <IoLogoGithub className="size-4" />
+              <VscGithubAlt className="size-4" />
               <span>GitHub</span>
             </Link>
             <Link
@@ -190,7 +190,7 @@ export const Header = () => {
                             href={env.NEXT_PUBLIC_GITHUB_URL}
                             className="flex items-center gap-2 text-sm hover:underline"
                           >
-                            <IoLogoGithub className="size-4" />
+                            <VscGithubAlt className="size-4" />
                             GitHub
                           </Link>
                         </SheetClose>

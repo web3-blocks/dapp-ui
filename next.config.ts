@@ -5,7 +5,6 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     qualities: [80, 100],
     remotePatterns: [
@@ -20,10 +19,8 @@ const nextConfig: NextConfig = {
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
   extension: /\.(md|mdx)$/,
   options: {
-    // Use serializable plugin references for Turbopack
     remarkPlugins: [require.resolve("remark-gfm")],
   },
 });
