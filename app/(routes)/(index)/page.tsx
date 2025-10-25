@@ -1,3 +1,4 @@
+import { FAQs } from "./_components/faqs";
 import { Features } from "./_components/features";
 import { HomeHero } from "./_components/hero";
 import { Integrations } from "./_components/integrate";
@@ -8,6 +9,7 @@ export default function Home() {
       <HomeHero />
       <Integrations />
       <Features />
+      <FAQs />
     </section>
   );
 }
