@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
 import CodeBlock from "@/components/code-block";
 import { Wrapper } from "@/components/shared/wrapper";
 import { siteConfig, siteMap } from "@/config/site.config";
 import { env } from "@/lib/env";
-import { Metadata } from "next";
 
 export const revalidate = false;
 export const dynamic = "force-static";

@@ -12,6 +12,7 @@ import { codeToHast } from "shiki/bundle/web";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { CircleCheckIcon, XIcon } from "lucide-react";
+import { Skeleton } from "./ui/skeleton";
 
 export async function highlight(code: string, lang: BundledLanguage) {
   const hast = await codeToHast(code, {
@@ -138,6 +139,6 @@ export default function CodeBlock({
       </Button>
     </div>
   ) : (
-    <pre className="rounded-lg bg-zinc-950 p-4">Loading...</pre>
+    <Skeleton className="w-full rounded-lg bg-zinc-900 p-6" />
   );
 }
