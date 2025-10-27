@@ -25,7 +25,7 @@ export async function StarsCount() {
   })
   const result = await data.json()
 
-  const json = result.find(({ id }: { id: number }) => id === 1083171961)
+  const json = result.find(({ name }: { name: string }) => name === "dapp-ui")
 
   return (
     <span className="text-muted-foreground mt-px text-xs tabular-nums">
