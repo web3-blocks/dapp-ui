@@ -3,7 +3,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/new-york/ui/alert"
+} from "@/registry/new-york-v4/ui/alert"
 
 export function Callout({
   title,

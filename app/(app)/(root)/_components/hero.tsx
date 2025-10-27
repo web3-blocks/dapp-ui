@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { Wrapper } from "@/components/shared/wrapper"
-import { buttonVariants } from "@/registry/new-york/ui/button"
+import { buttonVariants } from "@/registry/new-york-v4/ui/button"
 
 export const HomeHero = () => {
   return (
@@ -16,23 +16,15 @@ export const HomeHero = () => {
                 <Link
                   target="_blank"
                   href="https://ui.shadcn.com/"
-                  className="dark:hover:bg-background dark:hover:border-t-border group dark:bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 transition-colors duration-300 lg:ml-0 dark:border-t-white/5 dark:shadow-md dark:shadow-zinc-950"
+                  className="mx-auto flex w-fit items-center gap-2 rounded-(--radius) border p-1 pr-3 lg:ml-0"
                 >
-                  <span className="text-foreground text-sm">
-                    Powered by the shadcn
+                  <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs font-semibold">
+                    dApp/ui
                   </span>
-                  <span className="dark:group-hover:border-muted block h-4 w-0.5 border transition-colors duration-300"></span>
+                  <span className="text-sm">Powered by shadcn</span>
+                  <span className="block h-4 w-px bg-(--color-border)"></span>
 
-                  <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
-                    <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                      <span className="flex size-6">
-                        <ArrowRight className="m-auto size-3" />
-                      </span>
-                      <span className="flex size-6">
-                        <ArrowRight className="m-auto size-3" />
-                      </span>
-                    </div>
-                  </div>
+                  <ArrowRight className="size-4" />
                 </Link>
 
                 <h1 className="mt-6 text-4xl leading-[1.1] font-bold sm:text-5xl">
@@ -43,25 +35,23 @@ export const HomeHero = () => {
                   the shadcn/ui registry.
                 </p>
 
-                <div className="my-12 flex flex-row items-center justify-center gap-2 lg:justify-start">
+                <div className="mt-8 mb-12 flex flex-row items-center justify-center gap-2 lg:justify-start">
                   <Link
-                    href="/"
+                    href="/docs"
                     className={buttonVariants({
-                      size: "lg",
-                      className: "flex-1 sm:flex-initial",
+                      size: "sm",
                     })}
                   >
-                    <span className="text-nowrap">Get Started</span>
+                    <span>Get Started</span>
                   </Link>
                   <Link
-                    href="/"
+                    href="/docs/components"
                     className={buttonVariants({
-                      size: "lg",
+                      size: "sm",
                       variant: "ghost",
-                      className: "flex-1 sm:flex-initial",
                     })}
                   >
-                    <span className="text-nowrap">View Components</span>
+                    <span>View Components</span>
                   </Link>
                 </div>
 

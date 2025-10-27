@@ -6,7 +6,7 @@ import { toast } from "sonner"
 
 import { getColors } from "@/lib/colors"
 import { Wrapper } from "@/components/shared/wrapper"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Select,
   SelectContent,
@@ -14,7 +14,7 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-} from "@/registry/new-york/ui/select"
+} from "@/registry/new-york-v4/ui/select"
 
 interface Props {
   title: string
@@ -102,7 +102,12 @@ export const ColorSection: React.FC<Props> = ({ title, description }) => {
                   onValueChange={(v) => setSelectedFormat(v as Format)}
                 >
                   <SelectTrigger>
-                    <span>{FORMAT_META[selectedFormat].label}</span>
+                    <div className="flex items-center gap-1 font-medium">
+                      <span>Format:</span>
+                      <span className="text-muted-foreground">
+                        {FORMAT_META[selectedFormat].label}
+                      </span>
+                    </div>
                   </SelectTrigger>
                   <SelectContent align="end">
                     <SelectGroup>
@@ -162,7 +167,7 @@ export const ColorSection: React.FC<Props> = ({ title, description }) => {
                         onClick={() =>
                           handleCopy(String(color[selectedFormat]))
                         }
-                        className="relative aspect-[2.9] w-full rounded-md border sm:aspect-[0.8] sm:rounded-sm"
+                        className="relative aspect-[3] w-full rounded-lg border sm:aspect-[0.8]"
                         style={{ backgroundColor: color.oklch }}
                       />
                       <LucideClipboard className="pointer-events-none absolute top-2 right-2 z-10 size-4 opacity-0 mix-blend-difference transition duration-150 ease-out group-hover:opacity-100" />

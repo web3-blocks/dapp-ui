@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { useThemeConfig } from "@/components/active-theme"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -16,7 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york/ui/dialog"
+} from "@/registry/new-york-v4/ui/dialog"
 import {
   Drawer,
   DrawerContent,
@@ -24,9 +24,9 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/new-york/ui/drawer"
-import { Label } from "@/registry/new-york/ui/label"
-import { ScrollArea, ScrollBar } from "@/registry/new-york/ui/scroll-area"
+} from "@/registry/new-york-v4/ui/drawer"
+import { Label } from "@/registry/new-york-v4/ui/label"
+import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 import {
   Select,
   SelectContent,
@@ -34,13 +34,13 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "@/registry/new-york-v4/ui/select"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
+} from "@/registry/new-york-v4/ui/tabs"
 import {
   BaseColor,
   baseColors,

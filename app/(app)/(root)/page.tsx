@@ -3,7 +3,6 @@ import { Metadata } from "next"
 import { FAQs } from "./_components/faqs"
 import { Features } from "./_components/features"
 import { HomeHero } from "./_components/hero"
-import { Integrations } from "./_components/integrate"
 
 const title = "Web3 UI toolkit"
 const description =
@@ -40,7 +39,6 @@ export default function IndexPage() {
   return (
     <section className="relative overflow-x-clip border-b border-dashed">
       <HomeHero />
-      <Integrations />
       <Features />
       <FAQs />
     </section>

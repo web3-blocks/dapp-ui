@@ -11,8 +11,8 @@ import { findNeighbour } from "fumadocs-core/server"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { DocsTableOfContents } from "@/components/docs-toc"
-import { Badge } from "@/registry/new-york/ui/badge"
-import { Button } from "@/registry/new-york/ui/button"
+import { Badge } from "@/registry/new-york-v4/ui/badge"
+import { Button } from "@/registry/new-york-v4/ui/button"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -96,17 +96,12 @@ export default async function Page(props: {
         <div className="h-(--top-spacing) shrink-0" />
         <div className="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
           <div className="flex flex-col gap-2">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <div className="flex items-start justify-between">
                 <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
                   {doc.title}
                 </h1>
                 <div className="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
-                  {/* <DocsCopyPage
-                    // @ts-expect-error - revisit fumadocs types.
-                    page={doc.content}
-                    url={absoluteUrl(page.url)}
-                  /> */}
                   {neighbours.previous && (
                     <Button
                       variant="secondary"

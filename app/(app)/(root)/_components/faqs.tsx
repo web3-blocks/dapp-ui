@@ -8,7 +8,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/new-york/ui/accordion"
+} from "@/registry/new-york-v4/ui/accordion"
 
 export const FAQs = () => {
   return (
@@ -31,13 +31,13 @@ export const FAQs = () => {
                 type="single"
                 collapsible
                 defaultValue="item-1"
-                className="bg-muted dark:bg-muted/50 w-full rounded-[20px] p-1"
+                className="bg-background w-full rounded-[20px] border p-1 shadow-sm"
               >
                 {faqItems.map((item, index) => (
                   <div className="group" key={index}>
                     <AccordionItem
                       value={`item-${index + 1}`}
-                      className="data-[state=open]:bg-card dark:data-[state=open]:bg-muted peer rounded-xl border-none px-4 py-1 data-[state=open]:border-none data-[state=open]:shadow-sm sm:px-5 md:px-7"
+                      className="data-[state=open]:bg-secondary/20 peer rounded-xl border-none px-4 py-1 data-[state=open]:border-none data-[state=open]:shadow-none sm:px-5 md:px-7"
                     >
                       <AccordionTrigger
                         role="button"
@@ -46,7 +46,9 @@ export const FAQs = () => {
                         {item.question}
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="text-sm sm:text-base">{item.answer}</p>
+                        <p className="dark:text-muted-foreground text-sm">
+                          {item.answer}
+                        </p>
                       </AccordionContent>
                     </AccordionItem>
                     <hr className="mx-7 border-dashed group-last:hidden peer-data-[state=open]:opacity-0" />

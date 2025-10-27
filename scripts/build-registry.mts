@@ -17,14 +17,14 @@ import * as React from "react"
 export const Index: Record<string, any> = {`
   for (const item of registry.items) {
     const resolveFiles = item.files?.map(
-      (file) => `registry/new-york/${file.path}`
+      (file) => `registry/new-york-v4/${file.path}`
     )
     if (!resolveFiles) {
       continue
     }
 
     const componentPath = item.files?.[0]?.path
-      ? `@/registry/new-york/${item.files[0].path}`
+      ? `@/registry/new-york-v4/${item.files[0].path}`
       : ""
 
     index += `
@@ -34,7 +34,7 @@ export const Index: Record<string, any> = {`
     type: "${item.type}",
     registryDependencies: ${JSON.stringify(item.registryDependencies)},
     files: [${item.files?.map((file) => {
-      const filePath = `registry/new-york/${typeof file === "string" ? file : file.path}`
+      const filePath = `registry/new-york-v4/${typeof file === "string" ? file : file.path}`
       const resolvedFilePath = path.resolve(filePath)
       return typeof file === "string"
         ? `"${resolvedFilePath}"`
@@ -76,7 +76,7 @@ async function buildRegistryJsonFile() {
       const files = item.files?.map((file) => {
         return {
           ...file,
-          path: `registry/new-york/${file.path}`,
+          path: `registry/new-york-v4/${file.path}`,
         }
       })
 
@@ -94,10 +94,13 @@ async function buildRegistryJsonFile() {
     JSON.stringify(fixedRegistry, null, 2)
   )
 
-  // 3. Copy the registry.json to the www/public/r/styles/new-york directory.
+  // 3. Copy the registry.json to the www/public/r/styles/new-york-v4 directory.
   await fs.cp(
     path.join(process.cwd(), "registry.json"),
-    path.join(process.cwd(), "../www/public/r/styles/new-york/registry.json"),
+    path.join(
+      process.cwd(),
+      "../www/public/r/styles/new-york-v4/registry.json"
+    ),
     { recursive: true }
   )
 }
@@ -110,7 +113,7 @@ async function buildRegistry() {
     )
 
     // exec(
-    //   `pnpm dlx shadcn build registry.json --output ../www/public/r/styles/new-york`
+    //   `pnpm dlx shadcn build registry.json --output ../www/public/r/styles/new-york-v4`
     // )
 
     process.on("exit", (code) => {
