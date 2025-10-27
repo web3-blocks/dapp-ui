@@ -14,38 +14,25 @@ export async function GET(request: Request) {
         <div tw="flex border absolute border-stone-700 inset-x-0 h-[1px] bottom-16" />
         <div tw="flex absolute flex-row bottom-24 right-24 text-white">
           <svg
-            width="100"
-            height="54"
-            viewBox="0 0 100 54"
+            width="93"
+            height="60"
+            viewBox="0 0 93 60"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect x="17" width="49" height="14" fill="currentColor" />
-            <rect y="14" width="17" height="13" fill="currentColor" />
-            <rect x="66" y="14" width="17" height="13" fill="currentColor" />
             <rect
-              x="83"
-              y="54"
-              width="49"
-              height="14"
-              transform="rotate(180 83 54)"
-              fill="currentColor"
+              width="93"
+              height="59.1818"
+              rx="29.5909"
+              fill="var(--foreground)"
             />
             <rect
-              x="100"
-              y="40"
-              width="17"
-              height="13"
-              transform="rotate(180 100 40)"
-              fill="currentColor"
-            />
-            <rect
-              x="34"
-              y="40"
-              width="17"
-              height="13"
-              transform="rotate(180 34 40)"
-              fill="currentColor"
+              x="42.2727"
+              y="16.9091"
+              width="33.8182"
+              height="25.3636"
+              rx="12.6818"
+              fill="var(--background)"
             />
           </svg>
         </div>

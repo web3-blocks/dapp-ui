@@ -37,7 +37,7 @@ export const FAQs = () => {
                   <div className="group" key={index}>
                     <AccordionItem
                       value={`item-${index + 1}`}
-                      className="data-[state=open]:bg-secondary/20 peer rounded-xl border-none px-4 py-1 data-[state=open]:border-none data-[state=open]:shadow-none sm:px-5 md:px-7"
+                      className="data-[state=open]:bg-secondary/80 dark:data-[state=open]:bg-secondary/30 peer rounded-xl border-none px-4 py-1 data-[state=open]:border-none data-[state=open]:shadow-none sm:px-5 md:px-7"
                     >
                       <AccordionTrigger
                         role="button"
