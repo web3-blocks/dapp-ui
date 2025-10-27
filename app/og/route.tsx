@@ -20,19 +20,14 @@ export async function GET(request: Request) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect
-              width="93"
-              height="59.1818"
-              rx="29.5909"
-              fill="var(--foreground)"
-            />
+            <rect width="93" height="59.1818" rx="29.5909" fill="white" />
             <rect
               x="42.2727"
               y="16.9091"
               width="33.8182"
               height="25.3636"
               rx="12.6818"
-              fill="var(--background)"
+              fill="black"
             />
           </svg>
         </div>
