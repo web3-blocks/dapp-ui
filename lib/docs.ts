@@ -33,41 +33,56 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Wallet",
-          href: "/docs/wallet",
+          title: "Wallets",
+          href: "/docs/wallets",
+          items: [],
+        },
+        {
+          title: "Components",
+          href: "/docs/components",
           items: [],
         },
       ],
     },
     {
-      title: "Web3 Setup",
+      title: "Network Setup",
       items: [
         {
           title: "Ethereum",
-          href: "/docs/ethereum",
+          href: "/docs/setup/ethereum",
+          items: [],
+        },
+        {
+          title: "Solana",
+          href: "/docs/setup/solana",
+          items: [],
+        },
+        {
+          title: "Sui Network",
+          href: "/docs/setup/sui",
+          items: [],
+        },
+        {
+          title: "Starknet",
+          href: "/docs/setup/starknet",
           items: [],
         },
       ],
     },
-    // {
-    //   title: "Components",
-    //   items: [
-    //     {
-    //       title: "Connect Button",
-    //       href: "/docs/connect-button",
-    //       items: [],
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: "Hooks",
-    //   items: [
-    //     {
-    //       title: "useConnect",
-    //       href: "/docs/use-connect",
-    //       items: [],
-    //     },
-    //   ],
-    // },
+    {
+      title: "Components",
+      items: [
+        {
+          title: "Connect",
+          href: "/docs/components/connect",
+          items: [],
+        },
+        {
+          title: "Modal",
+          href: "/docs/components/modal",
+          items: [],
+        },
+      ],
+    },
   ],
 }

@@ -1,0 +1,149 @@
+---
+title: Ethereum
+description: A global, decentralized platform for money and new kinds of applications.
+---
+
+To build Ethereum-powered features in your dApp, **dApp/ui** recommends using:
+
+- [**Wagmi**](https://wagmi.sh/) — Reactivity for Ethereum apps
+- [**Viem**](https://viem.sh/) — TypeScript interface for RPC & smart contracts
+- [**TanStack Query**](https://tanstack.com/query/v5) — An async state manager that handles requests, caching, and more.
+- [**TypeScript**](https://wagmi.sh/react/typescript) — Optional, but highly recommended.
+
+dApp/ui components are fully compatible with these tools.
+
+## Wagmi Setup
+
+Wagmi. Reactivity for Ethereum apps.
+
+---
+
+### Install Dependencies
+
+Before installing any Web3 components, set up the required dependencies:
+
+```bash
+npm install wagmi viem@2.x @tanstack/react-query
+```
+
+---
+
+### Create Wagmi Config
+
+Create a client for connecting wallets and interacting with the blockchain.
+
+```ts title="config/wagmi.config.ts" showLineNumbers
+import { createConfig, http } from "wagmi"
+import { mainnet, sepolia } from "wagmi/chains"
+
+export const config = createConfig({
+  chains: [mainnet, polygon, base],
+  transports: {
+    [mainnet.id]: http(),
+    [sepolia.id]: http(),
+  },
+})
+```
+
+In this example, Wagmi is configured to use the Mainnet and Sepolia chains, and `injected` connector. Check out the [createConfig docs](https://wagmi.sh/react/api/createConfig) for more configuration options.
+
+---
+
+### Context Provider
+
+Create a separate wrapper file that'll wrap your app in the `WagmiProvider` React Context Provider and pass the `config` you created earlier to the `config` property.
+
+```tsx title="provider/wagmi.provider.tsx" showLineNumbers
+import * as React from "react"
+
+import { WagmiProvider as Provider } from "wagmi"
+import { config } from "@/config/wagmi.config"
+
+export default function WagmiProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <WagmiProvider config={config}>{children}</WagmiProvider>
+}
+```
+
+---
+
+### Setup TanStack Query
+
+Inside the `wagmi.provider.tsx`, wrap the children in a TanStack Query React Context Provider, e.g. `QueryClientProvider`, and pass a new `QueryClient` instance to the `client` property.
+
+```tsx {2} {7} {16} title="provider/wagmi.provider.tsx" showLineNumbers
+import * as React from "react"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+import { WagmiProvider as Provider } from "wagmi"
+import { config } from "@/config/wagmi.config"
+
+const queryClient = new QueryClient()
+
+export default function WagmiProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </WagmiProvider>
+  )
+}
+```
+
+---
+
+### Wrap App in Context Provider
+
+Wrap your app with the `wagmi.provider` component you created earlier.
+
+```tsx {1} {11} title="app/layout.tsx" showLineNumbers
+import { WagmiProvider } from "@/provider/wagmi.provider"
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <WagmiProvider>{children}</WagmiProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+---
+
+## Using dApp/ui Components
+
+Once your provider is ready, install components from the registry:
+
+```bash
+npx shadcn@latest add @dapp-ui/connect-wallet @dapp-ui/account
+```
+
+Example usage:
+
+```tsx {1} {2} {7} {8} title="components/Navbar.tsx" showLineNumbers
+import { AccountMenu } from "@/components/account"
+import { ConnectWallet } from "@/components/connect-wallet"
+
+export function Navbar() {
+  return (
+    <header className="flex items-center justify-end gap-4">
+      <AccountMenu />
+      <ConnectWallet />
+    </header>
+  )
+}
+```
+
+You now have a fully working Ethereum wallet connection.

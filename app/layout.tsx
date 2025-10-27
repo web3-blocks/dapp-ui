@@ -9,9 +9,10 @@ import { ActiveThemeProvider } from "@/components/active-theme"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/registry/new-york/ui/sonner"
+import { Toaster } from "@/registry/new-york-v4/ui/sonner"
 
 import "@/styles/globals.css"
+import Provider from "@/components/provider/wagmi.provider"
 
 export const metadata: Metadata = {
   title: {
@@ -92,9 +93,9 @@ export default function RootLayout({
         <ThemeProvider>
           <LayoutProvider>
             <ActiveThemeProvider>
-              {children}
+              <Provider>{children}</Provider>
               <TailwindIndicator />
-              <NextJsToploader showSpinner={false} />
+              <NextJsToploader showSpinner={false} color="var(--primary)" />
               <Toaster position="top-center" />
               <Analytics />
             </ActiveThemeProvider>

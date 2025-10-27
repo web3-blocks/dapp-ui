@@ -2,7 +2,7 @@ import { MdOutlineCode } from "react-icons/md"
 import { SiShadcnui } from "react-icons/si"
 
 import { Wrapper } from "@/components/shared/wrapper"
-import { Card, CardContent } from "@/registry/new-york/ui/card"
+import { Card, CardContent } from "@/registry/new-york-v4/ui/card"
 
 export const Features = () => {
   return (
@@ -11,7 +11,7 @@ export const Features = () => {
         <Wrapper size="sm" className="px-0! py-16 md:py-32">
           <div className="relative">
             <div className="relative z-10 grid grid-cols-6 gap-3">
-              <Card className="bg-card/80 relative col-span-full flex overflow-hidden lg:col-span-2">
+              <Card className="bg-background relative col-span-full flex overflow-hidden lg:col-span-2">
                 <CardContent className="relative m-auto size-fit pt-6">
                   <div className="relative flex h-24 w-56 items-center">
                     <svg
@@ -34,7 +34,7 @@ export const Features = () => {
                   </h2>
                 </CardContent>
               </Card>
-              <Card className="bg-card/80 relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
+              <Card className="bg-background relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
                 <CardContent className="pt-6">
                   <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
                     <svg
@@ -59,7 +59,7 @@ export const Features = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-card/80 relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
+              <Card className="bg-background relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
                 <CardContent className="pt-6">
                   <div className="relative mx-auto flex aspect-square size-32 rounded-full">
                     <svg
@@ -84,7 +84,7 @@ export const Features = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-card/80 relative col-span-full overflow-hidden lg:col-span-3">
+              <Card className="bg-background relative col-span-full overflow-hidden lg:col-span-3">
                 <CardContent className="grid pt-6 sm:grid-cols-2">
                   <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
                     <div className="relative flex aspect-square size-12 items-center justify-center rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
@@ -149,7 +149,7 @@ export const Features = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-card/80 relative col-span-full overflow-hidden lg:col-span-3">
+              <Card className="bg-background relative col-span-full overflow-hidden lg:col-span-3">
                 <CardContent className="grid h-full pt-6 sm:grid-cols-2">
                   <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
                     <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">

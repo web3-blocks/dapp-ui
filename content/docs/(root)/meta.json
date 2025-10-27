@@ -3,7 +3,7 @@
   "pages": [
     "index",
     "[Installation](/docs/installation)",
-    "[Wallet & Identity](/docs/wallet)",
-    "[Ethereum](/docs/ethereum)"
+    "[Wallets](/docs/wallets)",
+    "[Components](/docs/components)"
   ]
 }

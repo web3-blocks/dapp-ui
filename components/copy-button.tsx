@@ -5,12 +5,12 @@ import { CheckIcon, ClipboardIcon } from "lucide-react"
 
 import { Event, trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/new-york/ui/tooltip"
+} from "@/registry/new-york-v4/ui/tooltip"
 
 export function copyToClipboardWithMeta(value: string, event?: Event) {
   navigator.clipboard.writeText(value)

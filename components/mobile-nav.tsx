@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation"
 
 import { source } from "@/lib/source"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "@/registry/new-york-v4/ui/popover"
 
 export function MobileNav({
   tree,
@@ -51,7 +51,7 @@ export function MobileNav({
             </div>
             <span className="sr-only">Toggle Menu</span>
           </div>
-          <span className="flex h-8 items-center text-lg leading-none font-medium">
+          <span className="flex h-8 items-center text-base leading-none font-medium">
             Menu
           </span>
         </Button>
@@ -63,8 +63,8 @@ export function MobileNav({
         alignOffset={-16}
         sideOffset={14}
       >
-        <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col overflow-auto px-6 py-6">
+          <div className="mb-6 flex flex-col gap-4 border-b border-dashed pb-6">
             <div className="text-muted-foreground text-sm font-medium">
               Menu
             </div>
@@ -79,12 +79,15 @@ export function MobileNav({
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col">
             {tree?.children.length > 0 &&
               tree?.children?.map((group, index) => {
                 if (group.type === "folder") {
                   return (
-                    <div key={index} className="flex flex-col gap-4">
+                    <div
+                      key={index}
+                      className="mb-6 flex flex-col gap-4 border-b border-dashed pb-6 last-of-type:mb-0 last-of-type:border-b-0 last-of-type:pb-0"
+                    >
                       <div className="text-muted-foreground text-sm font-medium">
                         {group.name}
                       </div>

@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
-import { Tabs, TabsList, TabsTrigger } from "@/registry/new-york/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 
 export function ComponentPreviewTabs({
   className,
@@ -70,7 +70,7 @@ export function ComponentPreviewTabs({
         <div
           data-slot="code"
           data-active={tab === "code"}
-          className="absolute inset-0 hidden overflow-hidden data-[active=true]:block **:[figure]:!m-0 **:[pre]:h-[450px]"
+          className="absolute inset-0 hidden overflow-hidden data-[active=true]:block **:[figure]:m-0! **:[pre]:h-[450px]"
         >
           {source}
         </div>

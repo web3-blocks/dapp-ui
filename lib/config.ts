@@ -14,10 +14,10 @@ export const siteConfig = {
       label: "Docs",
       href: "/docs",
     },
-    // {
-    //   label: "Blocks",
-    //   href: "/docs",
-    // },
+    {
+      label: "Components",
+      href: "/docs/components",
+    },
     {
       label: "Colors",
       href: "/colors",
