@@ -1,0 +1,136 @@
+---
+title: Ethereum / EVM Setup
+description: Connect wallets and interact with EVM networks using wagmi and viem.
+---
+
+To build Ethereum-powered features in your dApp, **dApp/ui** recommends using:
+
+- **wagmi** — React hooks for Ethereum
+- **viem** — TypeScript interface for RPC & smart contracts
+
+dApp/ui components are fully compatible with these tools and work with any EVM chain —
+Ethereum, Polygon, Base, BNB Chain, Optimism, Arbitrum, etc.
+
+---
+
+## Install Dependencies
+
+Before installing any Web3 components, set up the required dependencies:
+
+```bash
+npm install wagmi viem@latest
+```
+
+Want built-in wallet connectors?
+
+```bash
+npm install @wagmi/core @rainbow-me/rainbowkit
+```
+
+> RainbowKit is optional — dApp/ui will also include native wallet UI.
+
+---
+
+## Configure Your Wagmi Provider
+
+Create a client for connecting wallets and interacting with the blockchain.
+
+```ts title="providers/wagmi.ts"
+import { createConfig, http } from "wagmi"
+import { base, mainnet, polygon } from "wagmi/chains"
+
+export const config = createConfig({
+  chains: [mainnet, polygon, base],
+  transports: {
+    [mainnet.id]: http(),
+    [polygon.id]: http(),
+    [base.id]: http(),
+  },
+})
+```
+
+Then wrap your app:
+
+```tsx title="app/layout.tsx"
+import { config } from "@/providers/wagmi"
+import { WagmiProvider } from "wagmi"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <WagmiProvider config={config}>{children}</WagmiProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+---
+
+## Using dApp/ui Wallet Components
+
+Once your provider is ready, install components from the registry:
+
+```bash
+npx shadcn@latest add @dapp-ui/connect-wallet @dapp-ui/account
+```
+
+Example usage:
+
+```tsx
+import { AccountMenu } from "@/components/account"
+import { ConnectWallet } from "@/components/connect-wallet"
+
+export function Navbar() {
+  return (
+    <header className="flex items-center justify-end gap-4">
+      <AccountMenu />
+      <ConnectWallet />
+    </header>
+  )
+}
+```
+
+You now have a fully working Ethereum wallet connection.
+
+---
+
+## Read On-Chain Data
+
+Use `viem` or wagmi hooks to read blockchain state:
+
+```ts
+import { useBalance } from "wagmi"
+
+export function Balance() {
+  const { data } = useBalance()
+  return <span>{data?.formatted ?? 0} ETH</span>
+}
+```
+
+---
+
+## Send Transactions
+
+```ts
+import { useAccount, useSendTransaction } from "wagmi"
+
+export function DonateButton() {
+  const { address } = useAccount()
+  const { sendTransaction } = useSendTransaction()
+
+  return (
+    <button
+      onClick={() =>
+        sendTransaction({
+          to: "0x000000000000000000000000000000000000dEaD",
+          value: BigInt(10 ** 16),
+        })
+      }
+    >
+      Donate
+    </button>
+  )
+}
+```

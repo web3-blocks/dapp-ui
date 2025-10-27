@@ -10,13 +10,15 @@
     "cssVariables": true,
     "prefix": ""
   },
-  "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils",
-    "ui": "@/components/ui",
+    "ui": "@/registry/new-york/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "iconLibrary": "lucide",
+  "registries": {
+    "@dappui": "https://dappui.vercel.app/{name}.json"
+  }
 }

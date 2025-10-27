@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import React from "react";
-import { useTheme } from "next-themes";
-import Image, { ImageProps } from "next/image";
+import React from "react"
+import Image, { ImageProps } from "next/image"
+import { useTheme } from "next-themes"
 
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/lib/config"
 
 interface Props extends ImageProps {
-  src: "light" | "dark";
-  type?: "logo" | "icon";
+  src: "light" | "dark"
+  type?: "logo" | "icon"
 }
 
 export const LogoIcon: React.FC<Props> = ({
@@ -17,41 +17,39 @@ export const LogoIcon: React.FC<Props> = ({
   alt,
   ...props
 }) => {
-  const { theme, resolvedTheme } = useTheme();
+  const { theme, resolvedTheme } = useTheme()
   const [logo, setLogo] = React.useState<"light" | "dark">(
-    src as "light" | "dark",
-  );
+    src as "light" | "dark"
+  )
 
   React.useEffect(() => {
     const updateLogo = (currentTheme: string | undefined) => {
       const isDark =
         currentTheme === "dark" ||
         (currentTheme === "system" &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches);
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
 
-      setLogo(isDark ? "light" : "dark");
-    };
+      setLogo(isDark ? "light" : "dark")
+    }
 
-    updateLogo(theme); // Update immediately
+    updateLogo(theme) // Update immediately
 
     // Listen to system color scheme changes only if theme is 'system'
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    );
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const handleSystemChange = () => {
       if (theme === "system") {
-        updateLogo("system");
+        updateLogo("system")
       }
-    };
+    }
 
     if (theme === "system") {
-      darkModeMediaQuery.addEventListener("change", handleSystemChange);
+      darkModeMediaQuery.addEventListener("change", handleSystemChange)
     }
 
     return () => {
-      darkModeMediaQuery.removeEventListener("change", handleSystemChange);
-    };
-  }, [theme, resolvedTheme, setLogo]);
+      darkModeMediaQuery.removeEventListener("change", handleSystemChange)
+    }
+  }, [theme, resolvedTheme, setLogo])
 
   return (
     <Image
@@ -61,5 +59,5 @@ export const LogoIcon: React.FC<Props> = ({
       src={`/assets/svg/${type === "logo" ? "dappui" : "logo"}-${logo.toString()}.svg`}
       {...props}
     />
-  );
-};
+  )
+}
