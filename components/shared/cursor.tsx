@@ -1,43 +1,43 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { motion } from "motion/react";
-import { usePathname } from "next/navigation";
+import * as React from "react"
+import { usePathname } from "next/navigation"
+import { motion } from "motion/react"
 
-import { useCursor } from "@/hooks/cursor";
+import { useCursor } from "@/hooks/use-cursor"
 
 export const CustomCursor = () => {
-  const pathname = usePathname();
-  const { x, y, angle } = useCursor();
+  const pathname = usePathname()
+  const { x, y, angle } = useCursor()
 
-  const cursorRef = React.useRef<SVGSVGElement | null>(null);
-  const [isPointer, setIsPointer] = React.useState<boolean>(false);
+  const cursorRef = React.useRef<SVGSVGElement | null>(null)
+  const [isPointer, setIsPointer] = React.useState<boolean>(false)
 
   React.useEffect(() => {
-    if (!cursorRef.current) return;
-    cursorRef.current.style.transform = `translate(${x}px, ${y}px)`;
-  }, [x, y, angle, isPointer]);
+    if (!cursorRef.current) return
+    cursorRef.current.style.transform = `translate(${x}px, ${y}px)`
+  }, [x, y, angle, isPointer])
 
   React.useEffect(() => {
     const interactiveElements = document.querySelectorAll(
       'a, button, [data-cursor="pointer"], [role="button"]'
-    );
+    )
 
-    const handleMouseEnter = () => setIsPointer(true);
-    const handleMouseLeave = () => setIsPointer(false);
+    const handleMouseEnter = () => setIsPointer(true)
+    const handleMouseLeave = () => setIsPointer(false)
 
     interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
+      el.addEventListener("mouseenter", handleMouseEnter)
+      el.addEventListener("mouseleave", handleMouseLeave)
+    })
 
     return () => {
       interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-      });
-    };
-  }, [pathname]);
+        el.removeEventListener("mouseenter", handleMouseEnter)
+        el.removeEventListener("mouseleave", handleMouseLeave)
+      })
+    }
+  }, [pathname])
 
   return (
     <motion.svg
@@ -81,5 +81,5 @@ export const CustomCursor = () => {
         />
       )}
     </motion.svg>
-  );
-};
+  )
+}
