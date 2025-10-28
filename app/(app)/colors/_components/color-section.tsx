@@ -6,7 +6,7 @@ import { toast } from "sonner"
 
 import { getColors } from "@/lib/colors"
 import { Wrapper } from "@/components/shared/wrapper"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Select,
   SelectContent,
@@ -14,7 +14,7 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-} from "@/registry/new-york-v4/ui/select"
+} from "@/registry/new-york/ui/select"
 
 interface Props {
   title: string

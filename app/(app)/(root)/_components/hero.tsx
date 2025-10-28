@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { Wrapper } from "@/components/shared/wrapper"
-import { buttonVariants } from "@/registry/new-york-v4/ui/button"
+import { buttonVariants } from "@/registry/new-york/ui/button"
 
 export const HomeHero = () => {
   return (

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { IconFolderCode } from "@tabler/icons-react"
 
 import { source } from "@/lib/source"
 import {
@@ -7,8 +8,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/registry/new-york-v4/ui/empty"
-import { IconFolderCode } from "@tabler/icons-react"
+} from "@/registry/new-york/ui/empty"
 
 export function ComponentsList() {
   const components = source.pageTree.children.find(

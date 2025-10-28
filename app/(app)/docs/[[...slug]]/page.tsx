@@ -11,8 +11,8 @@ import { findNeighbour } from "fumadocs-core/server"
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { DocsTableOfContents } from "@/components/docs-toc"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Badge } from "@/registry/new-york/ui/badge"
+import { Button } from "@/registry/new-york/ui/button"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -65,7 +65,7 @@ export async function generateMetadata(props: {
           )}&description=${encodeURIComponent(doc.description)}`,
         },
       ],
-      creator: "@shadcn",
+      creator: "@thelastofinusa",
     },
   }
 }
@@ -137,11 +137,11 @@ export default async function Page(props: {
               )}
             </div>
             {links ? (
-              <div className="flex items-center space-x-2 pt-4">
+              <div className="flex items-center space-x-2 pt-2">
                 {links?.doc && (
                   <Badge asChild variant="secondary">
                     <Link href={links.doc} target="_blank" rel="noreferrer">
-                      Docs <IconArrowUpRight />
+                      Documentation <IconArrowUpRight />
                     </Link>
                   </Badge>
                 )}

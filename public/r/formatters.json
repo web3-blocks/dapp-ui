@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "formatters",
+  "type": "registry:lib",
+  "title": "formatters",
+  "description": "formatters for components",
+  "files": [
+    {
+      "path": "registry/new-york/web3/lib/formatters.ts",
+      "content": "export const formatBalance = (rawBalance: string) => {\n  const balance = (parseInt(rawBalance) / 1000000000000000000).toFixed(2)\n  return balance\n}\n\nexport const formatChainAsNum = (chainIdHex: string) => {\n  const chainIdNum = parseInt(chainIdHex)\n  return chainIdNum\n}\n\nexport const formatAddress = (addr: string) => {\n  const upperAfterLastTwo = addr.slice(0, 2) + addr.slice(2)\n  return `${upperAfterLastTwo.substring(0, 5)}...${upperAfterLastTwo.substring(39)}`\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

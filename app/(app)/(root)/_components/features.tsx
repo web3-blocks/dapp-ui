@@ -2,7 +2,7 @@ import { MdOutlineCode } from "react-icons/md"
 import { SiShadcnui } from "react-icons/si"
 
 import { Wrapper } from "@/components/shared/wrapper"
-import { Card, CardContent } from "@/registry/new-york-v4/ui/card"
+import { Card, CardContent } from "@/registry/new-york/ui/card"
 
 export const Features = () => {
   return (

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-sync-providers",
+  "type": "registry:hook",
+  "title": "useSyncProviders",
+  "description": "useSyncProviders hook",
+  "registryDependencies": [
+    "http://localhost:3000/r/store.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/web3/hooks/use-sync-providers.ts",
+      "content": "\"use client\"\n\nimport { useSyncExternalStore } from \"react\"\n\nimport { store } from \"@/registry/new-york/web3/hooks/store\"\n\nexport const useSyncProviders = () =>\n  useSyncExternalStore(store.subscribe, store.value, store.value)\n",
+      "type": "registry:hook"
+    }
+  ]
+}

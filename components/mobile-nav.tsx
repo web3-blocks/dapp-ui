@@ -6,12 +6,12 @@ import { useRouter } from "next/navigation"
 
 import { source } from "@/lib/source"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/new-york/ui/popover"
 
 export function MobileNav({
   tree,

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "store",
+  "type": "registry:hook",
+  "title": "store",
+  "description": "store hook",
+  "files": [
+    {
+      "path": "registry/new-york/web3/hooks/store.ts",
+      "content": "declare global {\n  interface WindowEventMap {\n    \"eip6963:announceProvider\": CustomEvent\n  }\n}\n\n// An array to store the detected wallet providers.\nlet providers: EIP6963ProviderDetail[] = []\n\nexport const store = {\n  value: () => providers,\n  subscribe: (callback: () => void) => {\n    function onAnnouncement(event: EIP6963AnnounceProviderEvent) {\n      if (providers.map((p) => p.info.uuid).includes(event.detail.info.uuid))\n        return\n      providers = [...providers, event.detail]\n      callback()\n    }\n\n    // Listen for eip6963:announceProvider and call onAnnouncement when the event is triggered.\n    window.addEventListener(\"eip6963:announceProvider\", onAnnouncement)\n\n    // Dispatch the event, which triggers the event listener in the MetaMask wallet.\n    window.dispatchEvent(new Event(\"eip6963:requestProvider\"))\n\n    // Return a function that removes the event listener.\n    return () =>\n      window.removeEventListener(\"eip6963:announceProvider\", onAnnouncement)\n  },\n}\n",
+      "type": "registry:hook"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import { docsConfig } from "@/lib/docs"
 import { DocsSidebar } from "@/components/docs-sidebar"
-import { SidebarProvider } from "@/registry/new-york-v4/ui/sidebar"
+import { SidebarProvider } from "@/registry/new-york/ui/sidebar"
 
 export default function DocsLayout({
   children,

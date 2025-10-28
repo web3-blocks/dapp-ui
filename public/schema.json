@@ -4,7 +4,7 @@
   "properties": {
     "style": {
       "type": "string",
-      "enum": ["default", "new-york-v4"]
+      "enum": ["default", "new-york"]
     },
     "tailwind": {
       "type": "object",

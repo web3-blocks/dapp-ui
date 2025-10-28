@@ -14,16 +14,24 @@ export async function GET(request: Request) {
         <div tw="flex border absolute border-stone-700 inset-x-0 h-[1px] bottom-16" />
         <div tw="flex absolute flex-row bottom-24 right-24 text-white">
           <svg
-            width="93"
-            height="60"
-            viewBox="0 0 93 60"
+            width="140"
+            height="140"
+            viewBox="0 0 140 140"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="93" height="59.1818" rx="29.5909" fill="white" />
+            <rect width="140" height="140" rx="70" fill="black" />
             <rect
-              x="42.2727"
-              y="16.9091"
+              x="23"
+              y="40"
+              width="93"
+              height="59.1818"
+              rx="29.5909"
+              fill="white"
+            />
+            <rect
+              x="65.2727"
+              y="56.9091"
               width="33.8182"
               height="25.3636"
               rx="12.6818"

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "providers",
+  "type": "registry:lib",
+  "title": "providers",
+  "description": "providers for components",
+  "files": [
+    {
+      "path": "registry/new-york/web3/lib/providers.ts",
+      "content": "interface EIP6963ProviderInfo {\n  rdns: string\n  uuid: string\n  name: string\n  icon: string\n}\n\ninterface EIP6963ProviderDetail {\n  info: EIP6963ProviderInfo\n  provider: EIP1193Provider\n}\n\ntype EIP6963AnnounceProviderEvent = {\n  detail: {\n    info: EIP6963ProviderInfo\n    provider: Readonly<EIP1193Provider>\n  }\n}\n\ninterface EIP1193Provider {\n  isStatus?: boolean\n  host?: string\n  path?: string\n  sendAsync?: (\n    request: { method: string; params?: Array<unknown> },\n    callback: (error: Error | null, response: unknown) => void\n  ) => void\n  send?: (\n    request: { method: string; params?: Array<unknown> },\n    callback: (error: Error | null, response: unknown) => void\n  ) => void\n  request: (request: {\n    method: string\n    params?: Array<unknown>\n  }) => Promise<unknown>\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}
