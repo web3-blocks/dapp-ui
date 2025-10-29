@@ -2,39 +2,19 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "connect",
   "type": "registry:ui",
-  "title": "Connect",
-  "description": "Displays a custom connect button that accepts the network you're building on.",
+  "title": "Connect Button",
+  "description": "Connect button",
+  "dependencies": [
+    "@web3-blocks/dapp-ui"
+  ],
   "registryDependencies": [
-    "button",
-    "http://localhost:3000/r/utils.json",
-    "http://localhost:3000/r/use-connect.json",
-    "http://localhost:3000/r/use-sync-providers.json"
+    "button"
   ],
   "files": [
     {
-      "path": "registry/new-york/web3/ui/connect.tsx",
-      "content": "\"use client\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { useConnect } from \"@/registry/new-york/web3/hooks/use-connect\"\nimport { useSyncProviders } from \"@/registry/new-york/web3/hooks/use-sync-providers\"\nimport { formatAddress } from \"@/registry/new-york/web3/lib/utils\"\n\nexport function Connect() {\n  const providers = useSyncProviders()\n  const { handleConnect, userAccount, selectedWallet } = useConnect(\"evm\")\n\n  return (\n    <>\n      <h2>Wallets Detected:</h2>\n      <div>\n        {providers.length > 0 ? (\n          providers?.map((provider: EIP6963ProviderDetail) => (\n            <Button\n              key={provider.info.uuid}\n              onClick={() => handleConnect?.(provider)}\n            >\n              <img src={provider.info.icon} alt={provider.info.name} />\n              <div>{provider.info.name}</div>\n            </Button>\n          ))\n        ) : (\n          <div>No Announced Wallet Providers</div>\n        )}\n      </div>\n      <hr />\n      <h2>{userAccount ? \"\" : \"No \"}Wallet Selected</h2>\n      {userAccount && (\n        <div>\n          <div>\n            <img\n              src={selectedWallet?.info.icon}\n              alt={selectedWallet?.info.name}\n            />\n            <div>{selectedWallet?.info.name}</div>\n            <div>({formatAddress(userAccount)})</div>\n          </div>\n        </div>\n      )}\n    </>\n  )\n}\n",
+      "path": "registry/new-york/ui/connect.tsx",
+      "content": "import React from \"react\"\n\nimport { Button } from \"@/components/ui/button\"\n\nfunction Connect({ ...props }: React.ComponentProps<typeof Button>) {\n  return <Button {...props} />\n}\n\nexport { Connect }\n",
       "type": "registry:ui"
-    },
-    {
-      "path": "registry/new-york/web3/hooks/use-connect.ts",
-      "content": "import React from \"react\"\n\ntype ConnectType = \"evm\" | \"sol\" | \"sui\" | \"strk\"\n\nexport const useConnect = (blockchain: ConnectType) => {\n  const [selectedWallet, setSelectedWallet] =\n    React.useState<EIP6963ProviderDetail>()\n  const [userAccount, setUserAccount] = React.useState<string>(\"\")\n\n  const handleConnect = React.useCallback(\n    async (providerWithInfo: EIP6963ProviderDetail) => {\n      if (blockchain === \"evm\") {\n        const accounts: string[] | undefined = (await providerWithInfo.provider\n          .request({ method: \"eth_requestAccounts\" })\n          .catch(console.error)) as string[] | undefined\n\n        if (accounts?.[0]) {\n          setSelectedWallet(providerWithInfo)\n          setUserAccount(accounts?.[0])\n        }\n      }\n      // no-op for other blockchains (extend here as needed)\n    },\n    [blockchain]\n  )\n\n  return { handleConnect, selectedWallet, userAccount }\n}\n",
-      "type": "registry:hook"
-    },
-    {
-      "path": "registry/new-york/web3/hooks/use-sync-providers.ts",
-      "content": "\"use client\"\n\nimport { useSyncExternalStore } from \"react\"\n\nimport { store } from \"@/registry/new-york/web3/hooks/store\"\n\nexport const useSyncProviders = () =>\n  useSyncExternalStore(store.subscribe, store.value, store.value)\n",
-      "type": "registry:hook"
-    },
-    {
-      "path": "registry/new-york/web3/lib/utils.ts",
-      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n\nexport function formatBalance(rawBalance: string) {\n  const balance = (parseInt(rawBalance) / 1000000000000000000).toFixed(2)\n  return balance\n}\n\nexport function formatChainAsNum(chainIdHex: string) {\n  const chainIdNum = parseInt(chainIdHex)\n  return chainIdNum\n}\n\nexport function formatAddress(addr: string) {\n  const upperAfterLastTwo = addr.slice(0, 2) + addr.slice(2)\n  return `${upperAfterLastTwo.substring(0, 5)}...${upperAfterLastTwo.substring(39)}`\n}\n",
-      "type": "registry:lib"
-    },
-    {
-      "path": "registry/new-york/web3/lib/providers.ts",
-      "content": "interface EIP6963ProviderInfo {\n  rdns: string\n  uuid: string\n  name: string\n  icon: string\n}\n\ninterface EIP6963ProviderDetail {\n  info: EIP6963ProviderInfo\n  provider: EIP1193Provider\n}\n\ntype EIP6963AnnounceProviderEvent = {\n  detail: {\n    info: EIP6963ProviderInfo\n    provider: Readonly<EIP1193Provider>\n  }\n}\n\ninterface EIP1193Provider {\n  isStatus?: boolean\n  host?: string\n  path?: string\n  sendAsync?: (\n    request: { method: string; params?: Array<unknown> },\n    callback: (error: Error | null, response: unknown) => void\n  ) => void\n  send?: (\n    request: { method: string; params?: Array<unknown> },\n    callback: (error: Error | null, response: unknown) => void\n  ) => void\n  request: (request: {\n    method: string\n    params?: Array<unknown>\n  }) => Promise<unknown>\n}\n",
-      "type": "registry:lib"
     }
   ]
 }

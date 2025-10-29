@@ -1,8 +1,8 @@
 import { MdOutlineCode } from "react-icons/md"
 import { SiShadcnui } from "react-icons/si"
 
+import { Card, CardContent } from "@/components/ui/card"
 import { Wrapper } from "@/components/shared/wrapper"
-import { Card, CardContent } from "@/registry/new-york/ui/card"
 
 export const Features = () => {
   return (

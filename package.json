@@ -57,6 +57,7 @@
     "@tanstack/react-query": "^5.90.5",
     "@tanstack/react-table": "^8.9.1",
     "@vercel/analytics": "^1.4.1",
+    "@web3-blocks/dapp-ui": "^0.0.2",
     "change-case": "^5.4.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

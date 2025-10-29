@@ -2,13 +2,13 @@
 
 import { faqItems } from "@/constants"
 
-import { Wrapper } from "@/components/shared/wrapper"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/new-york/ui/accordion"
+} from "@/components/ui/accordion"
+import { Wrapper } from "@/components/shared/wrapper"
 
 export const FAQs = () => {
   return (

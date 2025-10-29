@@ -5,15 +5,15 @@ import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { LayoutProvider } from "@/hooks/use-layout"
-import { ActiveThemeProvider } from "@/components/active-theme"
-import { Analytics } from "@/components/analytics"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/registry/new-york/ui/sonner"
+import { ActiveThemeProvider } from "@/components/shared/active-theme"
+import { Analytics } from "@/components/shared/analytics"
+import { TailwindIndicator } from "@/components/shared/tailwind-indicator"
+import { ThemeProvider } from "@/components/shared/theme-provider"
 
 import "@/styles/globals.css"
 
-import Provider from "@/components/provider/wagmi.provider"
+import { Toaster } from "@/components/ui/sonner"
+import Provider from "@/components/provider/dapp-ui.provider"
 
 export const metadata: Metadata = {
   title: {

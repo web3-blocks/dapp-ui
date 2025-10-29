@@ -131,6 +131,9 @@ importers:
       '@vercel/analytics':
         specifier: ^1.4.1
         version: 1.5.0(next@16.0.0(@babel/core@7.28.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      '@web3-blocks/dapp-ui':
+        specifier: ^0.0.2
+        version: 0.0.2
       change-case:
         specifier: ^5.4.4
         version: 5.4.4
@@ -2573,6 +2576,9 @@ packages:
 
   '@walletconnect/window-metadata@1.0.1':
     resolution: {integrity: sha512-9koTqyGrM2cqFRW517BPY/iEtUDx2r1+Pwwu5m7sJ7ka79wi3EyqhqcICk/yDmv6jAS1rjKgTKXlEhanYjijcA==}
+
+  '@web3-blocks/dapp-ui@0.0.2':
+    resolution: {integrity: sha512-wYj/wNtAJ85S5OAH2OV1kTLc3ujb08hD9o3axdDx+sXMpRwekxkf/4l4L6eupFuy/gabSjoTUgLL/kXErNGiNA==}
 
   abitype@1.0.8:
     resolution: {integrity: sha512-ZeiI6h3GnW06uYDLx0etQtX/p8E24UaHHBj57RSjK7YBFe7iuVn07EDpOeP451D06sF27VOz9JJPlIKJmXgkEg==}
@@ -9502,6 +9508,8 @@ snapshots:
     dependencies:
       '@walletconnect/window-getters': 1.0.1
       tslib: 1.14.1
+
+  '@web3-blocks/dapp-ui@0.0.2': {}
 
   abitype@1.0.8(typescript@5.9.2)(zod@3.25.76):
     optionalDependencies:

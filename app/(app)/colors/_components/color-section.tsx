@@ -5,8 +5,7 @@ import { CircleCheckIcon, LucideClipboard, XIcon } from "lucide-react"
 import { toast } from "sonner"
 
 import { getColors } from "@/lib/colors"
-import { Wrapper } from "@/components/shared/wrapper"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/components/ui/button"
 import {
   Select,
   SelectContent,
@@ -14,7 +13,8 @@ import {
   SelectItem,
   SelectLabel,
   SelectTrigger,
-} from "@/registry/new-york/ui/select"
+} from "@/components/ui/select"
+import { Wrapper } from "@/components/shared/wrapper"
 
 interface Props {
   title: string

@@ -2,8 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+import { buttonVariants } from "@/components/ui/button"
 import { Wrapper } from "@/components/shared/wrapper"
-import { buttonVariants } from "@/registry/new-york/ui/button"
 
 export const HomeHero = () => {
   return (

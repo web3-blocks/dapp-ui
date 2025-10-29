@@ -10,9 +10,9 @@ import { findNeighbour } from "fumadocs-core/server"
 
 import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
-import { DocsTableOfContents } from "@/components/docs-toc"
-import { Badge } from "@/registry/new-york/ui/badge"
-import { Button } from "@/registry/new-york/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { DocsTableOfContents } from "@/components/shared/docs-toc"
 
 export const revalidate = false
 export const dynamic = "force-static"

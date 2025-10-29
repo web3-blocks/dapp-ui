@@ -1,8 +1,5 @@
-"use client"
-
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
-import { useEthereum } from "@web3-blocks/dapp-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Loader } from "lucide-react"
 
@@ -45,22 +42,33 @@ function Button({
   variant,
   size,
   asChild = false,
-  fn = "connect",
+  isLoading = false,
+  loadingText,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
-    fn: "connect" | "disconnect"
+    isLoading?: boolean
+    loadingText?: string
   }) {
   const Comp = asChild ? Slot : "button"
-  const { connect, disconnect } = useEthereum()
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    />
+      disabled={isLoading || props.disabled}
+    >
+      {isLoading ? (
+        <>
+          <Loader className="animate-spin" />{" "}
+          {loadingText && <span>{loadingText}</span>}
+        </>
+      ) : (
+        props.children
+      )}
+    </Comp>
   )
 }
 
