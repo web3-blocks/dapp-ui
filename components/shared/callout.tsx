@@ -10,10 +10,7 @@ export function Callout({
 }: React.ComponentProps<typeof Alert> & { icon?: React.ReactNode }) {
   return (
     <Alert
-      className={cn(
-        "bg-surface text-surface-foreground mt-6 w-auto border-none md:-mx-1",
-        className
-      )}
+      className={cn("text-surface-foreground mt-6 w-auto md:-mx-1", className)}
       {...props}
     >
       {icon}

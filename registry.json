@@ -4,16 +4,57 @@
   "homepage": "http://localhost:3000",
   "items": [
     {
-      "name": "connect",
+      "name": "button",
       "type": "registry:ui",
-      "title": "Connect Button",
-      "description": "Connect button",
-      "dependencies": ["@web3-blocks/dapp-ui"],
+      "dependencies": ["@radix-ui/react-slot", "@web3-blocks/dapp-ui"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "connectors",
+      "type": "registry:ui",
+      "dependencies": ["@radix-ui/react-dialog", "@web3-blocks/dapp-ui"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/connectors.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-demo",
+      "type": "registry:example",
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "registry/new-york/ui/connect.tsx",
-          "type": "registry:ui"
+          "path": "registry/new-york/examples/button-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "account-demo",
+      "type": "registry:example",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york/examples/account-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "connectors-demo",
+      "type": "registry:example",
+      "registryDependencies": ["connectors"],
+      "files": [
+        {
+          "path": "registry/new-york/examples/connectors-demo.tsx",
+          "type": "registry:example"
         }
       ]
     }

@@ -3,6 +3,8 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
+import Provider from "../provider/dapp-ui.provider"
+
 export function ThemeProvider({
   children,
   ...props
@@ -16,7 +18,7 @@ export function ThemeProvider({
       enableColorScheme
       {...props}
     >
-      {children}
+      <Provider>{children}</Provider>
     </NextThemesProvider>
   )
 }

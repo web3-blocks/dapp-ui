@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "account-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/account-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { useEthereum } from \"@web3-blocks/dapp-ui\"\n\nimport { Badge } from \"@/components/ui/badge\"\n\nexport default function AccountDemo() {\n  const { account } = useEthereum()\n\n  if (!account.isConnected) {\n    return (\n      <div className=\"text-muted-foreground text-sm\">\n        Not connected. Use the Connect button.\n      </div>\n    )\n  }\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <span className=\"text-muted-foreground text-sm\">Connected:</span>\n      <Badge variant=\"secondary\">{account.address}</Badge>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

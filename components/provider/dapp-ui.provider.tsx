@@ -2,11 +2,20 @@
 
 import React from "react"
 import { DappUiProvider } from "@web3-blocks/dapp-ui"
-import { mainnet, sepolia } from "wagmi/chains"
+import { sepolia } from "viem/chains"
 
-export default function Provider({ children }: { children: React.ReactNode }) {
+export default function Provider({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <DappUiProvider supportedChains={[mainnet, sepolia]}>
+    <DappUiProvider
+      network="ethereum"
+      chains={[sepolia]}
+      contract={{
+        abi: [],
+        address: "0x123",
+      }}
+    >
       {children}
     </DappUiProvider>
   )

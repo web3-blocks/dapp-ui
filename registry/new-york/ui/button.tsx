@@ -5,6 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { useEthereum } from "@web3-blocks/dapp-ui"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Loader } from "lucide-react"
+import { toast } from "sonner"
 
 import { cn } from "@/lib/utils"
 
@@ -45,23 +46,119 @@ function Button({
   variant,
   size,
   asChild = false,
-  fn = "connect",
+  isLoading = false,
+  loadingTxt,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
-    fn: "connect" | "disconnect"
+    isLoading?: boolean
+    loadingTxt?: string
   }) {
   const Comp = asChild ? Slot : "button"
-  const { connect, disconnect } = useEthereum()
 
   return (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <>
+          <Loader className="animate-spin" />{" "}
+          {loadingTxt && <span>{loadingTxt}</span>}
+        </>
+      ) : (
+        props.children
+      )}
+    </Comp>
   )
 }
 
-export { Button, buttonVariants }
+function Connect({
+  className,
+  variant,
+  size,
+  asChild = false,
+  isLoading = false,
+  loadingTxt,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+    isLoading?: boolean
+    loadingTxt?: string
+  }) {
+  const Comp = asChild ? Slot : "button"
+  const {
+    connect: { fn, loading, isWalletAvailable, error },
+  } = useEthereum()
+
+  React.useEffect(() => {
+    if (error) toast.error(error.message)
+  }, [error])
+
+  const isDisabled =
+    loading || isLoading || props.disabled || !isWalletAvailable
+
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      disabled={isDisabled}
+      {...props}
+      onClick={() => fn()}
+      title={!isWalletAvailable ? "No wallet detected" : props.title}
+    >
+      {loading || isLoading ? (
+        <>
+          <Loader className="animate-spin" />{" "}
+          {loadingTxt && <span>{loadingTxt}</span>}
+        </>
+      ) : (
+        props.children
+      )}
+    </Comp>
+  )
+}
+
+function Disconnect({
+  className,
+  variant,
+  size,
+  asChild = false,
+  isLoading = false,
+  loadingTxt,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+    isLoading?: boolean
+    loadingTxt?: string
+  }) {
+  const Comp = asChild ? Slot : "button"
+  const {
+    disconnect: { fn, loading },
+  } = useEthereum()
+
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+      disabled={loading || isLoading || props.disabled}
+      onClick={() => fn()}
+    >
+      {loading || isLoading ? (
+        <>
+          <Loader className="animate-spin" />{" "}
+          {loadingTxt && <span>{loadingTxt}</span>}
+        </>
+      ) : (
+        props.children
+      )}
+    </Comp>
+  )
+}
+
+export { Button, Connect, Disconnect, buttonVariants }

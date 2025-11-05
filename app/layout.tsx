@@ -13,7 +13,6 @@ import { ThemeProvider } from "@/components/shared/theme-provider"
 import "@/styles/globals.css"
 
 import { Toaster } from "@/components/ui/sonner"
-import Provider from "@/components/provider/dapp-ui.provider"
 
 export const metadata: Metadata = {
   title: {
@@ -94,7 +93,7 @@ export default function RootLayout({
         <ThemeProvider>
           <LayoutProvider>
             <ActiveThemeProvider>
-              <Provider>{children}</Provider>
+              {children}
               <TailwindIndicator />
               <NextJsToploader showSpinner={false} color="var(--primary)" />
               <Toaster position="top-center" />

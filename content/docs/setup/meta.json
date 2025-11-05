@@ -1,9 +1,4 @@
 {
   "title": "Network Setup",
-  "pages": [
-    "[Ethereum](/docs/setup/ethereum)",
-    "[Solana](/docs/setup/solana)",
-    "[Sui Network](/docs/setup/sui)",
-    "[Starknet](/docs/setup/starknet)"
-  ]
+  "pages": ["[Ethereum](/docs/setup/ethereum)"]
 }

@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/shared/icons"
 
 export interface NavItem {
   title: string
@@ -52,34 +52,19 @@ export const docsConfig: DocsConfig = {
           href: "/docs/setup/ethereum",
           items: [],
         },
-        {
-          title: "Solana",
-          href: "/docs/setup/solana",
-          items: [],
-        },
-        {
-          title: "Sui Network",
-          href: "/docs/setup/sui",
-          items: [],
-        },
-        {
-          title: "Starknet",
-          href: "/docs/setup/starknet",
-          items: [],
-        },
       ],
     },
     {
       title: "Components",
       items: [
         {
-          title: "Connect",
-          href: "/docs/components/connect",
+          title: "Button",
+          href: "/docs/components/button",
           items: [],
         },
         {
-          title: "Modal",
-          href: "/docs/components/modal",
+          title: "Connectors",
+          href: "/docs/components/connectors",
           items: [],
         },
       ],

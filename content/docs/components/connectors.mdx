@@ -1,0 +1,173 @@
+---
+title: Connectors
+description: Displays a button or a component that looks like a button.
+featured: true
+component: true
+---
+
+import { InfoIcon } from "lucide-react"
+
+<Callout variant="info" icon={<InfoIcon />}>
+  The connectors modal lists available wallet connectors exposed by your
+  provider (e.g., extensions like MetaMask). If no wallet is detected, see
+  [Wallets](/docs/wallets) to install one locally.
+</Callout>
+
+<ComponentPreview
+  name="connectors-demo"
+  description="Choose and connect a wallet"
+  className="mb-4"
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add connectors
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-dialog @radix-ui/react-scroll-area
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="connectors" title="components/ui/connectors.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { ConnectorsModal } from "@/registry/new-york/ui/connectors"
+
+export default function Page() {
+  return <ConnectorsModal />
+}
+```
+
+### Controlled open state
+
+```tsx showLineNumbers
+import * as React from "react"
+
+import { Button } from "@/components/ui/button"
+import { ConnectorsModal } from "@/registry/new-york/ui/connectors"
+
+export function ControlledExample() {
+  const [open, setOpen] = React.useState(false)
+
+  return (
+    <div className="flex items-center gap-2">
+      <Button variant="outline" onClick={() => setOpen(true)}>
+        Open Connectors
+      </Button>
+      <ConnectorsModal
+        open={open}
+        onOpenChange={setOpen}
+        title="Choose a Wallet"
+        description="Select a connector to authenticate and start using your account."
+      />
+    </div>
+  )
+}
+```
+
+## Props
+
+```ts showLineNumbers
+export type ConnectorsModalProps = {
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+  title?: string
+  description?: string
+  triggerText?: string
+  className?: string
+}
+```
+
+- `open` — controls the modal visibility in a controlled setup.
+- `onOpenChange` — receives open state changes from the modal.
+- `title` — text shown in the modal header, defaults to `"Connect a Wallet"`.
+- `description` — helper text under the title.
+- `triggerText` — text shown on the trigger button, defaults to `"Connect"`.
+- `className` — additional classes passed to the dialog content.
+
+## Behavior & States
+
+- Lists connectors from `useEthereum().connect.connectors` when available.
+- Initiates connection via `useEthereum().connect.fn(connector)`.
+- Disables items when loading or when a connector is not `ready`.
+- Shows installed status with a badge if `connector.installed` is true.
+- Surfaces errors via `useEthereum().connect.error` and displays a callout.
+- Indicates missing wallets when `connect.isWalletAvailable` is false.
+
+### Error handling
+
+```tsx showLineNumbers
+import { useEthereum } from "@web3-blocks/dapp-ui"
+
+import { ConnectorsModal } from "@/registry/new-york/ui/connectors"
+
+export function ErrorAwareExample() {
+  const {
+    connect: { error },
+  } = useEthereum()
+
+  return (
+    <div className="space-y-2">
+      {error && <div className="text-destructive text-sm">{error.message}</div>}
+      <ConnectorsModal />
+    </div>
+  )
+}
+```
+
+## Troubleshooting
+
+- No wallet detected: Install a browser wallet extension and reload the page.
+- Empty connectors list: Ensure your provider exposes connectors via `useEthereum().connect.connectors`.
+- Connection fails: Check `connect.error.message` for details and retry.
+- Persistent loading: Verify network connectivity and that the selected connector is `ready`.
+- Wrong chain: Use `useEthereum().network.switch(<chainId>)` to switch to a supported chain.
+
+## Type Safety
+
+All components and hooks are fully typed with TypeScript, ensuring type safety throughout your application.
+
+```ts showLineNumbers
+import { useEthereum } from "@web3-blocks/dapp-ui"
+
+const {
+  account, // AccountState
+  connect, // ConnectState
+  disconnect, // DisconnectState
+  network, // NetworkState
+} = useEthereum()
+
+connect.isWalletAvailable // boolean — runtime EIP-1193 provider check
+await connect.fn() // Promise<void> — initiates wallet connection
+await disconnect.fn() // Promise<void> — disconnects current wallet
+await network.switch(1) // switches to a supported chain by id
+```
