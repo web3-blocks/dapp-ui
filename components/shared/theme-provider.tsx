@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 export function ThemeProvider({
@@ -16,6 +17,7 @@ export function ThemeProvider({
       enableColorScheme
       {...props}
     >
+      <Analytics />
       {children}
     </NextThemesProvider>
   )
