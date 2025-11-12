@@ -12,15 +12,4 @@ export const examples: Registry["items"] = [
       },
     ],
   },
-  {
-    name: "account-demo",
-    type: "registry:example",
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "examples/account-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
 ]

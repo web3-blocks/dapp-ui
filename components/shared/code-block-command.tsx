@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon, ClipboardIcon, TerminalIcon } from "lucide-react"
+import { BsFillTerminalFill } from "react-icons/bs"
+import { TbCopy, TbCopyCheckFilled } from "react-icons/tb"
 
 import { useConfig } from "@/hooks/use-config"
 import { Button } from "@/components/ui/button"
@@ -74,9 +75,8 @@ export function CodeBlockCommand({
         }}
       >
         <div className="border-border/50 flex items-center gap-2 border-b px-3 py-1">
-          <div className="bg-foreground flex size-4 items-center justify-center rounded-[1px] opacity-70">
-            <TerminalIcon className="text-code size-3" />
-          </div>
+          <BsFillTerminalFill className="text-foreground size-4" />
+
           <TabsList className="rounded-none bg-transparent p-0">
             {Object.entries(tabs).map(([key]) => {
               return (
@@ -118,7 +118,11 @@ export function CodeBlockCommand({
             onClick={copyCommand}
           >
             <span className="sr-only">Copy</span>
-            {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
+            {hasCopied ? (
+              <TbCopyCheckFilled className="text-green-600" />
+            ) : (
+              <TbCopy />
+            )}
           </Button>
         </TooltipTrigger>
         <TooltipContent>

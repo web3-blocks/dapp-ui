@@ -62,11 +62,6 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/button",
           items: [],
         },
-        {
-          title: "Connectors",
-          href: "/docs/components/connectors",
-          items: [],
-        },
       ],
     },
   ],

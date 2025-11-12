@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon, ClipboardIcon } from "lucide-react"
+import { TbCopy, TbCopyCheckFilled } from "react-icons/tb"
 
 import { Event, trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
@@ -66,7 +66,11 @@ export function CopyButton({
           {...props}
         >
           <span className="sr-only">Copy</span>
-          {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
+          {hasCopied ? (
+            <TbCopyCheckFilled className="text-green-600" />
+          ) : (
+            <TbCopy />
+          )}
         </Button>
       </TooltipTrigger>
       <TooltipContent>

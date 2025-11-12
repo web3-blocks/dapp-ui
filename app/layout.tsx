@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       url: "https://linktr.ee/thelastofinusa",
     },
   ],
-  creator: "holiday",
+  creator: "thelastofinusa",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -50,12 +50,30 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [`${process.env.NEXT_PUBLIC_APP_URL}/opengraph-image.png`],
-    creator: "@shadcn",
+    creator: "@thelastofinusa",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon_dark/favicon.ico",
+    icon: [
+      {
+        url: "/favicon_light/favicon.ico",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon_dark/favicon.ico",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [
+      {
+        url: "/favicon_light/apple-touch-icon.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon_dark/apple-touch-icon.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 }
