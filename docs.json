@@ -1,0 +1,106 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "dapp-ui",
+  "colors": {
+    "primary": "#4A90E2",
+    "light": "#4A90E2",
+    "dark": "#2D3748"
+  },
+  "fonts": {
+    "heading": {
+      "family": "IBM Plex Sans"
+    },
+    "body": {
+      "family": "Albert Sans"
+    }
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": ["index", "quickstart", "development"]
+          },
+          {
+            "group": "Customization",
+            "pages": ["essentials/settings", "essentials/navigation"]
+          },
+          {
+            "group": "Writing content",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/reusable-snippets"
+            ]
+          },
+          {
+            "group": "AI tools",
+            "pages": [
+              "ai-tools/cursor",
+              "ai-tools/claude-code",
+              "ai-tools/windsurf"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API documentation",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Endpoint examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Issues",
+        "href": "https://github.com/web3-blocks/dapp-ui/issues"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Contribute",
+      "href": "https://github.com/web3-blocks/dapp-ui"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/dapp_uo",
+      "github": "https://github.com/web3-blocks/dapp-ui"
+    }
+  }
+}
