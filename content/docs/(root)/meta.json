@@ -1,0 +1,9 @@
+{
+  "title": "Get Started",
+  "pages": [
+    "index",
+    "[Installation](/docs/installation)",
+    "[Wallets](/docs/wallets)",
+    "[Components](/docs/components)"
+  ]
+}

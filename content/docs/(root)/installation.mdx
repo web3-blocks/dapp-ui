@@ -1,0 +1,44 @@
+---
+title: Installation
+description: Set up shadcn/ui and start adding Web3 components to your dApp.
+---
+
+To use **dApp/ui**, your project must first be configured with
+[**shadcn/ui**](https://ui.shadcn.com/docs/installation).
+If you haven’t already set it up, start there.
+
+---
+
+## Configure the Registry
+
+Add the **dApp/ui** namespace to your `components.json` file. This allows you to install components directly using the shadcn CLI.
+
+```json title="components.json" showLineNumbers
+{
+  "registries": {
+    "@dapp-ui": "https://dappui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Running `@dapp-ui/connect` will automatically resolves to: `https://dappui.vercel.app/r/connect.json`
+
+Learn more about registry config from [**shadcn/ui namespaces.**](https://ui.shadcn.com/docs/registry/namespace)
+
+---
+
+## Install Components
+
+Now you can install Web3 components the same way you install any shadcn/ui component:
+
+```bash
+npx shadcn@latest add @dapp-ui/connect
+```
+
+or install multiple components at once:
+
+```bash
+npx shadcn@latest add @dapp-ui/connect @dapp-ui/modal
+```
+
+> Note: Don't guess the component or block name, copy the cli command from on its category page. You now have **full control** of the component source — edit, extend, and style it however your dApp requires.

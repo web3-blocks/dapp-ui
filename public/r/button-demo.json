@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/button-demo.tsx",
+      "content": "\"use client\"\n\nimport { useEthereum } from \"@web3-blocks/dapp-ui\"\nimport { Wallet } from \"lucide-react\"\n\nimport { Connect, Disconnect } from \"@/registry/new-york/ui/button\"\n\nexport default function ButtonDemo() {\n  const {\n    account: { isConnected },\n  } = useEthereum()\n\n  return (\n    <div className=\"flex flex-wrap items-center gap-2 md:flex-row\">\n      {isConnected ? (\n        <Disconnect variant=\"outline\" loadingTxt=\"Disconnecting...\">\n          <span>Disconnect</span>\n        </Disconnect>\n      ) : (\n        <Connect variant=\"outline\" loadingTxt=\"Connecting...\">\n          <span>Connect Wallet</span>\n          <Wallet />\n        </Connect>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}
