@@ -101,7 +101,7 @@
 }
 
 .dark {
-  --background: oklch(14.077% 0.0044 285.776);
+  --background: oklch(13.493% 0.00241 285.986);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -179,7 +179,7 @@
 }
 
 @utility section-soft {
-  @apply from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none bg-gradient-to-b;
+  @apply from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none bg-linear-to-b;
 }
 
 @utility theme-container {
@@ -191,7 +191,7 @@
 }
 
 @utility container {
-  @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-4 lg:px-8;
+  @apply 3xl:max-w-[1436px] mx-auto max-w-[1400px] px-4 lg:px-8;
 }
 
 @utility no-scrollbar {

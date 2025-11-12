@@ -2,26 +2,26 @@ export const faqItems = [
   {
     question: "What is dApp/ui?",
     answer:
-      "dApp/ui is a collection of Web3-ready components built on top of the shadcn/ui registry. It provides composable, customizable building blocks for decentralized apps — like wallet modals, transaction flows, and on-chain UIs.",
+      "dApp/ui is a production-ready collection of Web3 components built for modern decentralized apps. It provides pre-styled, composable UI blocks for wallet connections, transactions, and on-chain interactions.",
   },
   {
     question: "Do I need to install a package?",
     answer:
-      "No. dApp/ui uses the shadcn registry system — you simply copy components directly into your project, giving you full ownership and flexibility without extra dependencies.",
+      "No installation required. dApp/ui leverages the shadcn registry — just copy components into your project and customize freely. No external dependencies, no vendor lock-in.",
   },
   {
-    question: "Which blockchains does it support?",
+    question: "Which networks are supported?",
     answer:
-      "dApp/ui is designed to work across multiple networks, including Ethereum, Solana, Sui, Starknet, and other EVM-compatible chains.",
+      "dApp/ui supports multiple ecosystems — including Ethereum, Solana, Sui, Starknet, and other EVM-compatible blockchains. More integrations are coming as the ecosystem expands.",
   },
   {
     question: "Can I customize the components?",
     answer:
-      "Yes — every component is 100% customizable. Since you own the code, you can edit, extend, and style it however you like using your existing design system.",
+      "Yes. Every component is fully editable and themeable. You control the source code — adjust logic, styles, or behavior to match your app’s needs and design system.",
   },
   {
     question: "Is dApp/ui open source?",
     answer:
-      "Absolutely. dApp/ui is fully open source and community-driven. You can explore the code, contribute, or fork the components directly from GitHub.",
+      "Yes — dApp/ui is 100% open source and community-driven. Explore the codebase, submit contributions, or fork components directly from our GitHub organization.",
   },
 ]
