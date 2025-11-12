@@ -14,14 +14,15 @@ export async function GET(request: Request) {
         <div tw="flex border absolute border-stone-700 inset-x-0 h-[1px] bottom-16" />
         <div tw="flex absolute flex-row bottom-24 right-24 text-white">
           <svg
-            viewBox="0 0 209 184"
+            width="246"
+            height="246"
+            viewBox="0 0 246 246"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            width="107"
-            height="107"
           >
+            <rect width="246" height="246" rx="123" fill="black" />
             <path
-              d="M58.075 92.75L23.25 111.5L58.075 130.25L104.5 155.25L150.925 130.25L185.75 111.5L150.925 92.75M58.075 92.75L104.5 117.75L150.925 92.75M58.075 92.75L23.25 74L104.5 30.25L185.75 74L150.925 92.75"
+              d="M79.0184 123.213L46.0263 141.046L79.0184 158.879L123 182.656L166.982 158.879L199.974 141.046L166.982 123.213M79.0184 123.213L123 146.99L166.982 123.213M79.0184 123.213L46.0263 105.38L123 63.7704L199.974 105.38L166.982 123.213"
               stroke="white"
               strokeWidth="12.5"
               strokeLinecap="round"

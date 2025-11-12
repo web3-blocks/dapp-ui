@@ -1,18 +1,17 @@
 import type { Metadata } from "next"
 import NextJsToploader from "nextjs-toploader"
 
+import "@/styles/globals.css"
+
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { LayoutProvider } from "@/hooks/use-layout"
+import { Toaster } from "@/components/ui/sonner"
 import { ActiveThemeProvider } from "@/components/shared/active-theme"
 import { Analytics } from "@/components/shared/analytics"
 import { TailwindIndicator } from "@/components/shared/tailwind-indicator"
 import { ThemeProvider } from "@/components/shared/theme-provider"
-
-import "@/styles/globals.css"
-
-import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: {
